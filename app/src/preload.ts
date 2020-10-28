@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
 import * as fs from 'fs';
 import * as path from 'path';
 
-import { ipcRenderer } from 'electron';
+import { remote, ipcRenderer } from 'electron';
+import { FindInPage } from 'electron-find';
 
 const INJECT_JS_PATH = path.join(__dirname, '..', 'inject/inject.js');
 /**
@@ -62,4 +63,12 @@ ipcRenderer.on('params', (event, message) => {
 
 ipcRenderer.on('debug', (event, message) => {
   console.info('debug:', message);
+});
+
+ipcRenderer.on('on-find', () => {
+  const findInPage = new FindInPage(remote.getCurrentWebContents(), {
+    offsetTop: 6,
+    offsetRight: 10,
+  });
+  findInPage.openFindWindow();
 });

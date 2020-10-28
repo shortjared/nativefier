@@ -78,6 +78,13 @@ export function createMenu({
     label: '&View',
     submenu: [
       {
+        label: 'Find in page',
+        accelerator: 'CmdOrCtrl+F',
+        click: (item, focusedWindow) => {
+          focusedWindow.webContents.send('on-find', '');
+        },
+      },
+      {
         label: 'Back',
         accelerator: (() => {
           const backKbShortcut =

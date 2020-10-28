@@ -1,5 +1,5 @@
 {
-  "name": "nativefier",
+  "name": "@shortjared/nativefier",
   "version": "10.1.0",
   "description": "Wrap web apps natively",
   "license": "MIT",

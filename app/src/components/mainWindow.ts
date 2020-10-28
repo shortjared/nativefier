@@ -95,7 +95,8 @@ export function createMainWindow(
     webPreferences: {
       javascript: true,
       plugins: true,
-      nodeIntegration: false, // `true` is *insecure*, and cause trouble with messenger.com
+      nodeIntegration: true, // `true` is *insecure*, and cause trouble with messenger.com
+      enableRemoteModule: true,
       webSecurity: !options.insecure,
       preload: path.join(__dirname, 'preload.js'),
       zoomFactor: options.zoom,

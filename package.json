@@ -29,7 +29,7 @@
   },
   "scripts": {
     "build-app": "cd app && webpack",
-    "build-app-static": "ncp app/src/static/ app/lib/static/ && ncp app/dist/preload.js app/lib/preload.js && ncp app/dist/preload.js.map app/lib/preload.js.map",
+    "build-app-static": "ncp app/src/static/ app/lib/static/",
     "build": "npm run clean && tsc --build . app && npm run build-app && npm run build-app-static",
     "build:watch": "tsc --build . app --watch",
     "dev-up": "npm install && cd ./app && npm install && cd ..",

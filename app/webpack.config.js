@@ -2,7 +2,10 @@ const path = require('path');
 
 module.exports = {
   target: 'node',
-  entry: './src/main.ts',
+  entry: {
+    main: './src/main.ts',
+    preload: './src/preload.ts',
+  },
   devtool: 'source-map', // https://webpack.js.org/configuration/devtool/
   module: {
     rules: [
@@ -24,11 +27,11 @@ module.exports = {
     electron: 'commonjs electron',
   },
   resolve: {
-    extensions: [ '.ts', '.js' ],
+    extensions: ['.ts', '.js'],
   },
   output: {
-    filename: 'main.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'lib'),
   },
-  mode: 'none'
+  mode: 'none',
 };

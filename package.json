@@ -1,11 +1,11 @@
 {
   "name": "@shortjared/nativefier",
-  "version": "10.1.1",
+  "version": "10.1.4",
   "description": "Wrap web apps natively",
   "license": "MIT",
   "author": "Goh Jia Hao",
   "engines": {
-    "node": ">= 10.1.3",
+    "node": ">= 10.0.0",
     "npm": ">= 6.0.0"
   },
   "keywords": [

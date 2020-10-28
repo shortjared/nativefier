@@ -1,6 +1,6 @@
 {
   "name": "@shortjared/nativefier",
-  "version": "10.1.4",
+  "version": "10.1.6",
   "description": "Wrap web apps natively",
   "license": "MIT",
   "author": "Goh Jia Hao",
@@ -77,6 +77,7 @@
   },
   "devDependencies": {
     "@types/jest": "26.x",
+    "@types/webpack-env": "^1.15.3",
     "@typescript-eslint/eslint-plugin": "4.x",
     "@typescript-eslint/parser": "4.x",
     "eslint": "7.x",

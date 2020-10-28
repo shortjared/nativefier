@@ -43,8 +43,9 @@ function injectScripts() {
   if (!needToInject) {
     return;
   }
-  // Dynamically require scripts
-  require(INJECT_JS_PATH);
+
+  (global as any).__non_webpack_require__ = require;
+  __non_webpack_require__(INJECT_JS_PATH);
 }
 
 function notifyNotificationCreate(title, opt) {

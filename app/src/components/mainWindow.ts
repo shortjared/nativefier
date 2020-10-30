@@ -49,9 +49,14 @@ function injectCss(browserWindow: BrowserWindow): void {
     browserWindow.webContents.session.webRequest.onHeadersReceived(
       { urls: [] }, // Pass an empty filter list; null will not match _any_ urls
       (details, callback) => {
-        // eslint-disable-next-line @typescript-eslint/no-floating-promises
-        browserWindow.webContents.insertCSS(cssToInject);
-        callback({ cancel: false, responseHeaders: details.responseHeaders });
+        try {
+          // eslint-disable-next-line @typescript-eslint/no-floating-promises
+          browserWindow.webContents.insertCSS(cssToInject);
+          callback({ cancel: false, responseHeaders: details.responseHeaders });
+        } catch (e) {
+          // we know this could fail, just catching and skipping for now
+          callback({ cancel: false, responseHeaders: details.responseHeaders });
+        }
       },
     );
   });
@@ -395,7 +400,6 @@ export function createMainWindow(
 
   // @ts-ignore
   mainWindow.on('new-tab', () => createNewTab(options.targetUrl, true));
-
   mainWindow.on('close', (event) => {
     if (mainWindow.isFullScreen()) {
       if (nativeTabsSupported()) {

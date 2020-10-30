@@ -208,6 +208,20 @@ export function createMenu({
     role: 'window',
     submenu: [
       {
+        label: 'Next Tab',
+        accelerator: 'Ctrl+Tab',
+        click: (item, focusedWindow) => {
+          focusedWindow.selectNextTab();
+        },
+      },
+      {
+        label: 'Next Tab',
+        accelerator: 'Shift+Ctrl+Tab',
+        click: (item, focusedWindow) => {
+          focusedWindow.selectPreviousTab();
+        },
+      },
+      {
         label: 'Minimize',
         accelerator: 'CmdOrCtrl+M',
         role: 'minimize',

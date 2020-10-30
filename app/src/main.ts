@@ -179,3 +179,37 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
     createLoginWindow(callback);
   }
 });
+
+// BrowserWindow.getAllWindows() doesn't have any order
+// this is busted
+
+// app.on('web-contents-created', (webContentsCreatedEvent, webContents) => {
+//   webContents.on('before-input-event', (beforeInputEvent, input) => {
+//     // console.log('Main console::', input)
+//     const { code, alt, control, shift, meta } = input;
+//     console.log(input);
+//     // Shortcut: toggle devTools
+//     const number_keys = [
+//       'Digit0',
+//       'Digit1',
+//       'Digit2',
+//       'Digit3',
+//       'Digit4',
+//       'Digit5',
+//       'Digit6',
+//       'Digit7',
+//       'Digit8',
+//       'Digit9',
+//     ];
+//     if (!shift && !control && !alt && meta && number_keys.includes(code)) {
+// const windows = BrowserWindow.getAllWindows();
+//       console.log(windows);
+//       try {
+//         const index = number_keys.indexOf(code);
+//         windows[index - 1].focus();
+//       } catch (e) {
+//         // skip errors
+//       }
+//     }
+//   });
+// });
